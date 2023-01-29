@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+  <link rel="stylesheet" href="dist/my.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h3>CSS Grid Layout - what is it?</h3>
+        <p>CSS Grid Layout is a two-dimensional layout.</p>
+        <aside class="notes">
+          Rick: 'Hello gues! Today we will talk about CSS GRID LAYOUT. WHAT IS IT?' 
+          Im: Hey! I'm sorry this can get boring, so I called Rick for help.
+          CSS Grid Layout is a 2D layout. With it, you can
+          control the position of an element vertically and horizontally at the same time, unlike Flexbox, where you can
+          only control elements along one axis.
+        </aside>
+      </section>
+      <section>
+        <img src="./assets/images/CSS-Grid-Layout.jpg" alt="Grid">
+        <aside class="notes">
+          grid is a set of intersecting horizontal and vertical lines that divide the space of a grid container into
+          grid areas into which grid items can be placed.
+
+          grid lines are invisible horizontal and vertical dividing lines, they exist on both sides of a row and column.
+          They can be referenced by a numerical index or by a name given in the CSS code.
+
+          grid track - the space between two adjacent grid lines, used to define either a column or row of a grid. The
+          track goes from one end of the container to the other. By default, adjacent tracks fit tightly to each other,
+          you can set the distance between them using the gap property.
+
+          grid cell - surrounded by four grid lines. This is the area where content can be placed. This is the smallest
+          grid unit.
+
+          grid area - a rectangular area bounded by four grid lines and consisting of one or more neighboring cells. The
+          area can be as small as one cell, or as large as all cells in the grid.
+        </aside>
+      </section>
+      <section>
+        <img src="./assets/images/maquette.jpg" alt="">
+        <aside class="notes">
+          Now based on this layout, I will explain how to use grid
+        </aside>
+      </section>
+      <section>
+        <div>
+          <img src="./assets/images/html.jpg" alt="">
+          <img src="./assets/images/css_color.jpg" alt="">
+        </div>
+        <img src="./assets/images/result1.jpg" alt="">
+        <aside class="notes">
+          First, let's create an HTML template and color our elements with css.
+        </aside>
+      </section>
+      <section>
+        <section id="fragments">
+          <p>display: grid</p>
+          <p><span class="fragment">to create columns:</span> <span class="fragment">grid-template-columns</span></p>
+          <p><span class="fragment">to create rows:</span> <span class="fragment">grid-template-rows</span></p>
+          <aside class="notes">
+            To create a grid container for an element, you need to apply the display property with the grid value;
+            This will create an area with a grid, and the child elements will be placed in it according to the rules
+            grid layout
+            ...To divide the grid container into columns ...use the grid-template-columns property,
+            ...and for splitting into lines
+            ...grid-template-rows.
+            With these properties, you can define the grid explicitly.
+            The final mesh may be larger if the number of elements exceeds the number of created
+            cells; in this case implicit tracks will be created.</aside>
+        </section>
+      </section>
+      <section>
+        <section id="fragment">
+          <img style="margin: 0;" src="./assets/images/result1.jpg" alt="">
+          <img style="margin: 0;" class="fragment" src="./assets/images/flex2.jpg" alt="">
+          <img style="margin: 0;" class="fragment" src="./assets/images/flex1.jpg" alt="">
+          <img style="margin: 0; width: 400px;" class="fragment" src="./assets/images/result2.jpg" alt="">
+          <aside class="notes">
+            Let's return to our preparation and build a grid.
+            ...To do this, let's apply display: grid to our container. and create 3 rows and 5 columns of fixed
+            hundred pixels each.
+            This can be done in different ways. ...We will shorten the code using the repeat function with
+            the number of elements and their sizes.
+            ... As a result, we will get such a table, where some of the resulting cells will not be filled yet.
+            In this example we are using absolute values - px
+          </aside>
+        </section>
+      </section>
+      <section>
+        <section id="fragment">
+          <p>absolute units: px</p>
+          <p>relative units: em, vh, vw, %</p>
+          <img class="fragment" src="./assets/images/flex3.jpg" alt="">
+          <img class="fragment" src="./assets/images/result3.jpg" alt="">
+          <aside class="notes">
+            But grid tracks can be sized using either absolute units, px, or relative units, such as em, vh, vw, and
+            percentages. Dimensions in percentages are calculated from the width or height of the grid container. Also,
+            all this
+            can be combined.
+            ...And applying these properties to our workpiece, we get
+            ...such a grid-container
+          </aside>
+        </section>
+      </section>
+      <section>
+        <section id="fragment">
+          <p>fr - fraction</p>
+          <p class="fragment">grid-template-columns: 1fr 1fr 1fr</p>
+          <img style="margin: 0;" class="fragment" src="./assets/images/3_1fr.png" alt="">
+          <p class="fragment">grid-template-columns: 2fr 1fr 1fr</p>
+          <img style="margin: 0;" class="fragment" src="/assets/images/2fr_1fr_1fr.png" alt="">
+          <aside class="notes">
+            In addition, Grid adds one more unit to our usual units - 1fr (fraction). It indicates the proportion of
+            available space and allows you to create flexible grids.
+            ...With these parameters, we get
+            ...three columns of the same size.
+            ...With such
+            ...the available space will be divided into four parts, two parts will be given to the first
+            grid column and one part each to the second and third columns.
+          </aside>
+        </section>
+      </section>
+      <section>
+        <p>grid-template-columns: 0.5fr 1fr 2.5fr</p>
+        <img src="./assets/images/05_1_25.png" alt="">
+        <aside class="notes">
+          In addition, this unit of measure can be used even with fractional values. And with these parameters, we will
+          get such a grid container
+        </aside>
+      </section>
+      <section>
+        <section id="fragment">
+          <img src="./assets/images/result2_lines.jpg" alt="">
+          <p class="fragment">grid-column-start, grid-column-end</p>
+          <p class="fragment">grid-row-start, grid-row-end</p>
+          <p class="fragment">grid-column / grid-row</p>
+          <aside class="notes">
+            But let's get back to our preparation...
+            We have created three rows and five columns, and the grid lines are automatically created (indicated in
+            red).
+            We have no influence on their creation, but we can use them. When created, all lines receive a serial
+            number. And we can easily place items in the grid relative to these numbered lines.
+            This has the following properties:
+            ...grid-column-start, grid-column-end
+            ...grid-row-start, grid-row-end, which can be shortened to
+            ...grid-column / grid-row
+          </aside>
+        </section>
+      </section>
+      <section>
+        <img src="./assets/images/green_block.jpg" alt="">
+        <aside class="notes">
+          ...And now let's place the green block as it was placed on the layout.
+        </aside>
+      </section>
+      <section>
+        <section id="fragment">
+          <img src="/assets/images/green_flex.jpg" alt="">
+          <img class="fragment" src="./assets/images/green_flex2.jpg" alt="">
+          <img class="fragment" src="./assets/images/green.jpg" alt="">
+          <aside class="notes">
+            To do this, write the following properties in css:
+            ...Which can be shortened like this, indicating the start and end lines with a slash.
+            ...And we will get what we need. The green block occupied the grid area of four cells.
+            Let's do the same with the rest of the blocks.
+          </aside>
+        </section>
+      </section>
+      <section>
+        <section class="imp" style="flex-wrap: wrap;" id="fragment">
+          <div style="display: flex; flex-direction: column;">
+            <img style="width: 300px; margin: 0;" src="./assets/images/blue_flex.jpg" alt="">
+            <img style="width: 400px; margin: 0;" src="./assets/images/blue.jpg" alt="">
+          </div>
+          <div style="display: flex; flex-direction: column;" class="fragment">
+            <img style="width: 300px; margin: 0;" src="./assets/images/pink_flex.jpg" alt="">
+            <img style="width: 400px; margin: 0;" src="./assets/images/pink.jpg" alt="">
+          </div>
+          <div style="display: flex; flex-direction: column;" class="fragment">
+            <img style="width: 300px; margin: 0;" src="./assets/images/orange_flex.jpg" alt="">
+            <img style="width: 400px; margin: 0;" src="./assets/images/orange.jpg" alt="">
+          </div>
+          <div class="fragment">
+            <img style="width: 400px; margin-top: 100px;" src="./assets/images/result4.jpg" alt="">
+          </div>
+          <aside class="notes">
+            blue...
+            pink...
+            orange...
+            And the gray and brown blocks themselves occupied the remaining empty cells.
+          </aside>
+        </section>
+      </section>
+      <section>
+        <section id="fragment">
+          <p>gap: 10px</p>
+          <img class="fragment" src="./assets/images/radius.jpg" alt="">
+          <div>
+            <img class="fragment" style="width: 400px;" src="./assets/images/Itog.jpg" alt="">
+            <img style="width: 430px;" class="fragment" src="./assets/images/maquette.jpg" alt="">
+          </div>
+          <aside class="notes">
+            By adding spaces between cells to the properties of the grid container,
+            ...and some beauty to our elements.
+            ...we get this result.
+            And ... compare with our layout. I think it turned out well!
+            Grid's possibilities don't end there!
+            Each grid item can also be a grid container.
+          </aside>
+        </section>
+      </section>
+      <section>
+        <section id="fragment">
+          <p>Z-index</p>
+          <div>
+            <img style="width: 400px; margin: 0;" class="fragment" src="/assets/images/z_index.jpg" alt="">
+            <img style="width: 400px; margin: 0;" class="fragment" src="./assets/images/z_index2.jpg" alt="">
+          </div>
+          <img style="width: 400px; margin: 0;" class="fragment" src="./assets/images/z_index3.jpg" alt="">
+          <aside class="notes">
+            Z-indexes apply to grids. With the help of line placement, you can place one element on top of another, and
+            by applying the Z-index, you can change who will be superimposed on whom.
+            ...like this
+            ...or so
+            ...or even that
+          </aside>
+        </section>
+      </section>
+      <section>
+        <p>order: <em>integer value</em></p>
+        <img src="./assets/images/order.jpg" alt="">
+        <img src="./assets/images/order2.jpg" alt="">
+        <aside class="notes">
+          Using the order property, you can change the order in which elements are displayed.
+        </aside>
+      </section>
+      <section>
+        <section id="fragment">
+          <div style="display: flex;">
+            <p>grid-area: <em>name</em></p>
+            <img src="./assets/images/css_area.jpg" alt="">
+            <div class="fragment">
+              <p>grid-template-areas: "<em>scheme</em>"</p>
+              <img src="./assets/images/css_area_container.jpg" alt="">
+            </div>
+          </div>
+          <img style="width: 400px; margin: 0;" class="fragment" src="./assets/images/name_area.jpg" alt="">
+          <aside class="notes">
+            You can also assign names to each block in a grid container using the grid-area property.
+            ...Then, in the grid container, build a block layout using the grid-template-areas property.
+            ...and we'll get the same result as when placing elements along the grid lines.
+          </aside>
+        </section>
+      </section>
+      <section>
+        <h2>Thank you for attention!</h2>
+        <img src="./assets/images/dedpull.jpg" alt="">
+        <aside class="notes">
+          That's all, thanks for your attention!
+        </aside>
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>
